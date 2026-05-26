@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EletricAlves | Eletricista Certificado DGEG</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:#050505;
+      color:#fff;
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      background:rgba(0,0,0,.92);
+      border-bottom:1px solid rgba(255,190,0,.25);
+      backdrop-filter:blur(8px);
+    }
+    .nav{
+      max-width:1150px;margin:auto;padding:16px 22px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .logo{
+      font-size:28px;font-weight:900;font-style:italic;letter-spacing:-1px;
+      transform:skew(-10deg);
+      text-transform:uppercase;
+    }
+    .logo span:first-child{color:#fff}
+    .logo span:last-child{color:#ffc400}
+    .logo .bolt{color:#ffc400;font-size:34px;margin:0 1px}
+    .navlinks{display:flex;gap:24px;font-size:14px;font-weight:700;text-transform:uppercase}
+    .navlinks a:hover{color:#ffc400}
+    .hero{
+      min-height:690px;
+      background:
+        radial-gradient(circle at 75% 20%, rgba(255,196,0,.18), transparent 30%),
+        linear-gradient(135deg,#050505 0%,#0b0b0b 62%,#151000 100%);
+      display:flex;align-items:center;
+      padding:80px 22px;
+    }
+    .hero-inner{
+      max-width:1150px;margin:auto;
+      display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center;
+    }
+    .badge{
+      display:inline-block;border:1px solid #ffc400;color:#ffc400;
+      padding:8px 14px;border-radius:999px;font-weight:800;font-size:13px;
+      margin-bottom:18px;text-transform:uppercase;letter-spacing:1px;
+    }
+    h1{
+      font-size:58px;line-height:1.05;margin-bottom:18px;
+      text-transform:uppercase;font-style:italic;letter-spacing:-2px;
+    }
+    h1 strong{color:#ffc400}
+    .hero p{font-size:20px;color:#d8d8d8;max-width:610px;margin-bottom:28px}
+    .buttons{display:flex;flex-wrap:wrap;gap:14px}
+    .btn{
+      padding:15px 22px;border-radius:10px;font-weight:900;text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:9px;border:2px solid #ffc400;
+      transition:.2s;
+    }
+    .btn.primary{background:#ffc400;color:#000}
+    .btn.secondary{background:transparent;color:#ffc400}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(255,196,0,.35)}
+    .hero-card{
+      border:1px solid rgba(255,196,0,.45);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      border-radius:24px;padding:34px;
+      box-shadow:0 0 50px rgba(255,196,0,.12);
+    }
+    .big-logo{
+      font-size:42px;font-weight:900;font-style:italic;letter-spacing:-2px;
+      transform:skew(-10deg);margin-bottom:14px;text-transform:uppercase;
+    }
+    .big-logo span:first-child{color:#fff}.big-logo span:last-child{color:#ffc400}
+    .big-logo .bolt{color:#ffc400;font-size:54px}
+    .slogan{
+      color:#eee;letter-spacing:5px;font-size:14px;text-transform:uppercase;margin-bottom:24px
+    }
+    .cert{
+      display:flex;align-items:center;gap:16px;
+      padding:18px 0;border-top:1px solid rgba(255,196,0,.25);
+      border-bottom:1px solid rgba(255,196,0,.25);
+      font-size:18px;font-weight:800;
+    }
+    .icon{
+      width:46px;height:46px;min-width:46px;border-radius:50%;
+      background:#ffc400;color:#000;display:flex;align-items:center;justify-content:center;
+      font-size:23px;font-weight:900;
+    }
+    .mini-list{
+      margin-top:22px;
+      display:grid;
+      gap:12px;
+      color:#d8d8d8;
+      font-weight:700;
+    }
+    .mini-list div{display:flex;gap:10px;align-items:center}
+    .check{color:#ffc400;font-weight:900}
+    section{padding:80px 22px}
+    .container{max-width:1150px;margin:auto}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title h2{font-size:36px;text-transform:uppercase;letter-spacing:1px}
+    .section-title p{color:#cfcfcf;margin-top:8px}
+    .services{
+      display:grid;grid-template-columns:repeat(5,1fr);gap:16px;
+    }
+    .service{
+      border:1px solid rgba(255,196,0,.55);border-radius:18px;padding:28px 18px;text-align:center;
+      background:#0d0d0d;min-height:250px;
+    }
+    .service .service-icon{font-size:48px;color:#ffc400;margin-bottom:14px}
+    .service h3{font-size:18px;text-transform:uppercase;margin-bottom:12px}
+    .service p{font-size:14px;color:#cfcfcf}
+    .urgent{
+      background:linear-gradient(90deg,#ffc400,#ffae00);
+      color:#000;border-radius:22px;padding:36px;
+      display:flex;align-items:center;justify-content:space-between;gap:25px;
+      box-shadow:0 0 35px rgba(255,196,0,.25);
+    }
+    .urgent h2{font-size:38px;text-transform:uppercase}
+    .urgent p{font-weight:800;font-size:18px}
+    .contact{
+      background:#0d0d0d;
+      border:1px solid rgba(255,196,0,.35);
+      border-radius:22px;
+      padding:36px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:25px;
+      align-items:center;
+    }
+    .contact h2{font-size:32px;text-transform:uppercase;margin-bottom:8px}
+    .contact p{color:#cfcfcf}
+    footer{
+      padding:30px 22px;text-align:center;color:#999;
+      border-top:1px solid rgba(255,196,0,.22);background:#020202;
+    }
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr 1fr}
+      h1{font-size:42px}
+      .navlinks{display:none}
+      .urgent,.contact{grid-template-columns:1fr;flex-direction:column;text-align:center}
+      .contact .buttons{justify-content:center}
+    }
+    @media(max-width:520px){
+      .services{grid-template-columns:1fr}
+      .big-logo{font-size:34px}
+      .hero{padding-top:50px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <nav class="nav">
+      <div class="logo"><span>Eletric</span><span class="bolt">⚡</span><span>Alves</span></div>
+      <div class="navlinks">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#urgencia">Piquete 24H</a>
+        <a href="#contactos">Contactos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio" class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="badge">Técnico Responsável • Certificação DGEG</div>
+        <h1>Serviços elétricos com <strong>segurança</strong> e confiança</h1>
+        <p>Instalações elétricas, quadros elétricos, iluminação, manutenção, reparações e piquete de urgência 24 horas.</p>
+        <div class="buttons">
+          <a class="btn primary" href="tel:+351912640973">📞 Ligar agora</a>
+          <a class="btn secondary" href="https://wa.me/351912640973" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="big-logo"><span>Eletric</span><span class="bolt">⚡</span><span>Alves</span></div>
+        <div class="slogan">Qualidade • Segurança • Confiança</div>
+        <div class="cert">
+          <div class="icon">✓</div>
+          <div>Certificação DGEG<br><small>Técnico Responsável de Instalações Elétricas</small></div>
+        </div>
+        <div class="mini-list">
+          <div><span class="check">✓</span> Trabalhos com segurança e profissionalismo</div>
+          <div><span class="check">✓</span> Atendimento para habitações e pequenos negócios</div>
+          <div><span class="check">✓</span> Assistência em avarias elétricas</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="servicos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Os nossos serviços</h2>
+        <p>Soluções elétricas profissionais, simples e seguras.</p>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <div class="service-icon">🏠</div>
+          <h3>Instalações Elétricas</h3>
+          <p>Instalações novas, remodelações e alterações elétricas.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">▣</div>
+          <h3>Quadros Elétricos</h3>
+          <p>Montagem, organização, reparação e substituição de quadros.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">💡</div>
+          <h3>Iluminação</h3>
+          <p>Iluminação interior, exterior, LED e soluções eficientes.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">🛡</div>
+          <h3>Manutenção e Reparações</h3>
+          <p>Diagnóstico de avarias e reparações rápidas e seguras.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">🚨</div>
+          <h3>Piquete de Urgência 24H</h3>
+          <p>Serviço disponível para emergências elétricas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="urgencia">
+    <div class="container">
+      <div class="urgent">
+        <div>
+          <h2>Piquete de urgência 24H</h2>
+          <p>Avarias elétricas? Contacte já por chamada ou WhatsApp.</p>
+        </div>
+        <div class="buttons">
+          <a class="btn primary" style="background:#000;color:#ffc400;border-color:#000" href="tel:+351912640973">📞 Ligar</a>
+          <a class="btn secondary" style="color:#000;border-color:#000" href="https://wa.me/351912640973" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contactos">
+    <div class="container">
+      <div class="contact">
+        <div>
+          <h2>Precisa de um eletricista?</h2>
+          <p>Peça orçamento, assistência ou piquete de urgência através dos botões ao lado.</p>
+        </div>
+        <div class="buttons">
+          <a class="btn primary" href="tel:+351912640973">📞 Chamar</a>
+          <a class="btn secondary" href="https://wa.me/351912640973" target="_blank">💬 WhatsApp</a>
+          <a class="btn secondary" href="mailto:tomas.fa@hotmail.com">✉️ Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 EletricAlves. Qualidade • Segurança • Confiança
+  </footer>
+
+</body>
+</html>
